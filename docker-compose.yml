@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  app:
+    container_name: app
+    build: .
+    command: python3 run.py
+    volumes:
+      - .:/app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    env_file:
+      - app.env
